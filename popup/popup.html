@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B站换一换缓存</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <h1>被换掉的视频</h1>
+    <div class="header-actions">
+      <select id="themeSelect" class="theme-select">
+        <option value="follow">跟随站点</option>
+        <option value="light">浅色</option>
+        <option value="dark">深色</option>
+      </select>
+      <button id="clearBtn" class="clear-btn">清空</button>
+    </div>
+  </div>
+  <div class="toggle-row">
+    <label class="toggle-label">
+      <span>额外信息（简介/标签）</span>
+      <input type="checkbox" id="extraToggle" class="toggle-input">
+      <span class="toggle-switch"></span>
+    </label>
+    <span id="extraStatus" class="extra-status"></span>
+  </div>
+  <div class="search-bar">
+    <input id="searchInput" class="search-input" type="text" placeholder="搜索关键字..." autocomplete="off">
+  </div>
+  <div id="videoList" class="video-list"></div>
+  <div id="emptyState" class="empty-state" style="display:none;">
+    <p>暂无缓存视频</p>
+    <p class="empty-hint">在B站首页点击「换一换」后，被刷走的视频将出现在这里</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+:root {
+  --bg-primary: #f5f6f7;
+  --bg-secondary: #fff;
+  --bg-cover: #e3e5e7;
+  --text-primary: #18191c;
+  --text-secondary: #9499a0;
+  --text-tertiary: #c9ccd0;
+  --border: #e3e5e7;
+  --accent: #fb7299;
+  --accent-hover: #f55c88;
+  --card-bg: #fff;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --card-hover-bg: #f8f9fa;
+  --toggle-bg: #e3e5e7;
+  --toggle-knob: #fff;
+}
+
+body.theme-dark {
+  --bg-primary: #1e1e1e;
+  --bg-secondary: #2a2a2a;
+  --bg-cover: #3a3a3a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #999;
+  --text-tertiary: #666;
+  --border: #3a3a3a;
+  --card-bg: #2a2a2a;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --card-hover-bg: #333;
+  --toggle-bg: #555;
+  --toggle-knob: #ccc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  max-height: 560px;
+  overflow-y: auto;
+  width: 400px;
+}
+
+/* ── Header ──────────────────────────── */
+
+.header {
+  align-items: center;
+  background: var(--bg-primary);
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header h1 {
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.header-actions {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.theme-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 1;
+  padding: 5px 20px 5px 8px;
+  position: relative;
+  transition: border-color 0.2s;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%239499a0' d='M2 3l2 2 2-2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+}
+
+.theme-select:hover,
+.theme-select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.theme-select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.clear-btn {
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px 14px;
+  transition: background 0.2s;
+}
+
+.clear-btn:hover {
+  background: var(--accent-hover);
+}
+
+/* ── Toggle ──────────────────────────── */
+
+.toggle-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px 8px;
+}
+
+.toggle-label {
+  align-items: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  font-size: 12px;
+  gap: 8px;
+  user-select: none;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-switch {
+  background: var(--toggle-bg);
+  border-radius: 9px;
+  height: 18px;
+  position: relative;
+  transition: background 0.2s;
+  width: 32px;
+}
+
+.toggle-switch::after {
+  background: var(--toggle-knob);
+  border-radius: 50%;
+  content: '';
+  height: 14px;
+  left: 2px;
+  position: absolute;
+  top: 2px;
+  transition: transform 0.2s;
+  width: 14px;
+}
+
+.toggle-input:checked + .toggle-switch {
+  background: var(--accent);
+}
+
+.toggle-input:checked + .toggle-switch::after {
+  transform: translateX(14px);
+}
+
+.extra-status {
+  color: var(--text-tertiary);
+  font-size: 11px;
+}
+
+/* ── Search ──────────────────────────── */
+
+.search-bar {
+  padding: 0 16px 10px;
+}
+
+.search-input {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 13px;
+  outline: none;
+  padding: 8px 12px;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+}
+
+.search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* ── Video List ──────────────────────── */
+
+.video-list {
+  padding: 0 12px 12px;
+}
+
+.video-item {
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding: 10px;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
+.video-item:hover {
+  background: var(--card-hover-bg);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.video-cover {
+  background: var(--bg-cover);
+  border-radius: 6px;
+  flex-shrink: 0;
+  height: 68px;
+  object-fit: cover;
+  width: 120px;
+}
+
+.video-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.video-title {
+  color: var(--text-primary);
+  display: -webkit-box;
+  font-size: 13px;
+  font-weight: 500;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.4;
+  overflow: hidden;
+}
+
+.video-meta {
+  align-items: center;
+  color: var(--text-secondary);
+  display: flex;
+  font-size: 11px;
+  gap: 8px;
+}
+
+.video-author {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.video-time {
+  flex-shrink: 0;
+}
+
+.video-detail {
+  color: var(--text-secondary);
+  font-size: 11px;
+  line-height: 1.4;
+  margin-top: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.highlight {
+  background: none;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Empty State ─────────────────────── */
+
+.empty-state {
+  align-items: center;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.empty-hint {
+  color: var(--text-tertiary);
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 8px;
+}
